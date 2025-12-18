@@ -1,0 +1,666 @@
+/* ========================================================================= */
+/* 1. VARIÁVEIS DE CORES E FONTES */
+/* ========================================================================= */
+:root {
+    --primary-color: #00d1b2; /* Verde/Ciano Moderno (Principal de Ação) */
+    --primary-hover: #00b894; /* Tom para hover */
+    --secondary-color: #2c3e50; /* Azul Escuro/Chumbo (Para Textos e Elementos) */
+    --text-dark: #2c3e50;
+    --text-light: #ecf0f1;
+    --background-dark: #1f2937; /* Fundo Escuro Principal (Headers, Rodapés, Hero) */
+    --background-dark-faded: #293240; /* Variação sutil do fundo escuro */
+    --background-light: #f4f7f6; /* Fundo Claro Principal */
+    --shadow-light: rgba(0, 0, 0, 0.05);
+    --shadow-heavy: rgba(0, 0, 0, 0.2);
+    --font-heading: 'Inter', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+}
+
+/* ========================================================================= */
+/* 2. BASE, RESET E TIPOGRAFIA */
+/* ========================================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--background-light);
+}
+
+/* Títulos */
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    line-height: 1.2;
+    font-weight: 800;
+}
+
+h1 {
+    font-size: 3.5rem;
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+}
+
+.dark-section h2 {
+    color: var(--text-light);
+}
+
+h3 {
+    font-size: 1.6rem;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--primary-hover);
+}
+
+/* ========================================================================= */
+/* 3. LAYOUT E SEÇÕES COMUNS */
+/* ========================================================================= */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: 80px 0;
+}
+
+.dark-section {
+    background-color: var(--background-dark);
+    color: var(--text-light);
+}
+
+/* Nova classe para a seção de métricas */
+.dark-section-faded {
+    background-color: var(--background-dark-faded);
+    color: var(--text-light);
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Textos de suporte */
+.tagline {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.tagline-secondary {
+    color: var(--secondary-color);
+}
+
+.subtitle {
+    font-size: 1.35rem;
+    font-weight: 400;
+    max-width: 800px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.4;
+}
+
+.description-large {
+    font-size: 1.4rem;
+    max-width: 850px;
+    margin: 0 auto 3rem;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+/* ========================================================================= */
+/* 4. BOTÕES E CTAS */
+/* ========================================================================= */
+.btn {
+    display: inline-flex; /* Para alinhar ícones, se houver */
+    align-items: center;
+    padding: 14px 35px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: transform 0.3s, background-color 0.3s, border-color 0.3s, color 0.3s;
+    letter-spacing: 0.5px;
+    margin: 10px 10px 10px 0; /* Espaçamento entre botões */
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--background-dark);
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 5px 15px rgba(0, 209, 178, 0.4);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
+}
+
+/* Novo botão, agora sem fundo (Outline) */
+.btn-secondary-outline {
+    background-color: transparent;
+    color: var(--text-light);
+    border: 2px solid #5a6a7c;
+}
+
+.btn-secondary-outline:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--background-dark);
+}
+
+.btn-large {
+    font-size: 1.1rem;
+    padding: 18px 40px;
+}
+
+.btn i {
+    margin-right: 10px;
+}
+
+/* ========================================================================= */
+/* 5. HEADER & NAVEGAÇÃO */
+/* ========================================================================= */
+.header {
+    background-color: var(--background-dark);
+    box-shadow: 0 2px 10px var(--shadow-heavy);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--primary-color);
+}
+
+.nav-menu a {
+    color: var(--text-light);
+    margin-left: 25px;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 5px 0;
+    opacity: 0.8;
+    transition: opacity 0.3s, color 0.3s;
+}
+
+.nav-menu a:hover {
+    opacity: 1;
+    color: var(--primary-color);
+}
+
+/* O botão do menu de navegação é agora .btn-nav (que usa btn-primary) */
+.btn-nav {
+    border: 2px solid var(--primary-color);
+    padding: 8px 18px;
+    border-radius: 5px;
+    margin-left: 30px;
+    background-color: var(--primary-color);
+    color: var(--background-dark);
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+/* Esconder o toggle button por padrão (para desktop) */
+.menu-toggle {
+    display: none; 
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* ========================================================================= */
+/* 6. HERO SECTION */
+/* ========================================================================= */
+.hero {
+    padding: 140px 0 100px;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero h1 {
+    color: var(--text-light);
+    font-size: 4.2rem;
+}
+
+.hero .subtitle {
+    color: #bdc3c7; /* Cinza claro */
+    margin-bottom: 3rem;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.hero-visual {
+    flex: 1;
+    text-align: center;
+}
+
+/* Estilo para a imagem/mockup na seção Hero */
+.hero-visual .img-responsive {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    /* Exemplo: Fundo para o placeholder enquanto a imagem não carrega */
+    background-color: var(--secondary-color); 
+    min-height: 300px; 
+}
+
+/* ========================================================================= */
+/* 7. MÉTRICAS (PROVA SOCIAL) */
+/* ========================================================================= */
+.metrics-section {
+    padding: 60px 0;
+}
+
+.metrics-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.metric-item {
+    text-align: center;
+    max-width: 250px;
+}
+
+.metric-icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.metric-value {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--text-light);
+    line-height: 1.1;
+}
+
+.metric-label {
+    font-size: 1rem;
+    color: #bdc3c7;
+    margin-top: 5px;
+}
+
+
+/* ========================================================================= */
+/* 8. SOLUÇÕES (CARDS DE SERVIÇOS) */
+/* ========================================================================= */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.service-card {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px var(--shadow-light);
+    transition: transform 0.3s, box-shadow 0.3s, border-left-color 0.3s;
+    border-left: 5px solid var(--secondary-color);
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px var(--shadow-heavy);
+    border-left-color: var(--primary-color);
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    display: block;
+}
+
+.service-card h3 {
+    color: var(--secondary-color);
+}
+
+.card-link {
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.card-link i {
+    margin-left: 8px;
+    font-size: 0.8rem;
+}
+
+
+/* ========================================================================= */
+/* 9. PILARES (DIFERENCIAL) */
+/* ========================================================================= */
+.pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+    text-align: left;
+}
+
+.pillar-item {
+    background-color: var(--background-dark-faded);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-bottom: 4px solid var(--primary-color);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.pillar-item:hover {
+    background-color: #2b394d;
+    transform: translateY(-5px);
+}
+
+.pillar-icon {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.pillar-title {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: 10px;
+}
+
+.pillar-item p {
+    font-size: 1rem;
+    color: #aeb4b8;
+}
+
+/* ========================================================================= */
+/* 10. CONTATO (CTA FINAL) */
+/* ========================================================================= */
+.cta-section {
+    background-color: var(--background-dark); /* Fundo escuro para destaque */
+    color: var(--text-light);
+    padding: 100px 0;
+}
+
+.cta-section h2, .cta-section .subtitle {
+    color: var(--text-light);
+}
+
+.contact-details {
+    margin-top: 30px;
+    font-size: 1.1rem;
+}
+
+.contact-details p {
+    color: #aeb4b8;
+}
+
+
+/* ========================================================================= */
+/* 11. RODAPÉ */
+/* ========================================================================= */
+.footer {
+    background-color: #1a232e;
+    color: #aeb4b8;
+    padding: 40px 0;
+    font-size: 0.9rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap; /* Garante quebras no mobile */
+    gap: 30px;
+}
+
+.footer-brand .logo {
+    font-size: 1.5rem;
+}
+
+.footer-brand .tagline-footer, .footer-brand .copyright {
+    margin-top: 10px;
+    color: #7f8c8d;
+}
+
+.footer-links h4, .footer-contact h4 {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 15px;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links a {
+    color: #aeb4b8;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 0 !important;
+}
+
+.icon-link i {
+    font-size: 24px;
+    color: #aeb4b8;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.icon-link:hover i {
+    color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+
+/* ========================================================================= */
+/* 12. RESPONSIVIDADE (MEDIA QUERIES) */
+/* ========================================================================= */
+
+/* Tablets e Telas Médias (max-width: 900px) */
+@media (max-width: 900px) {
+    /* Layout Hero */
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .hero h1 {
+        font-size: 3.2rem;
+    }
+
+    .hero-actions {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .hero-visual {
+        margin-top: 40px;
+        min-height: 250px;
+    }
+
+    /* Navegação */
+    .nav-menu {
+        display: none; /* Esconde o menu de desktop */
+    }
+    
+    .menu-toggle {
+        display: block; /* Mostra o botão do menu mobile */
+    }
+
+    /* Geral */
+    h2 {
+        font-size: 2.2rem;
+    }
+    
+    .subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .metrics-grid {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    /* Rodapé */
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .footer-links, .footer-contact {
+        width: 100%;
+        text-align: center;
+    }
+    .footer-links ul {
+        padding: 0;
+    }
+    .social-icons {
+        justify-content: center;
+    }
+}
+
+/* Smartphones (max-width: 600px) */
+@media (max-width: 600px) {
+    .section {
+        padding: 50px 0;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .subtitle, .description-large {
+        font-size: 1.05rem;
+    }
+    
+    /* Botões menores no mobile */
+    .btn {
+        padding: 10px 25px;
+        font-size: 0.9rem;
+    }
+
+    .btn-large {
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+    
+    .pillars-grid, .cards-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ================= QUEM SOMOS ================= */
+#quem-somos {
+    padding: 80px 20px;
+    background-color: var(--background-light);
+    color: var(--text-dark);
+    text-align: center;
+}
+
+#quem-somos .tagline-secondary {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+#quem-somos h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+#quem-somos .about-text {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+#quem-somos .about-text p {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+}
+
+#quem-somos .about-text p strong {
+    color: var(--primary-color);
+}
+
